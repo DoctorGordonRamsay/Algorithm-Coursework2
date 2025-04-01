@@ -42,7 +42,13 @@ public  class ContactsBST implements  IContactsDB {
         
     private Contact retrieve (Node tree, String name) {
 		// to do
-        if (string.compareTo)
+        if (name string.compareTo tree) {
+
+        } else if () {
+
+        } else if () {
+            
+        }
 		return null; // not really
 	}
 	/**
