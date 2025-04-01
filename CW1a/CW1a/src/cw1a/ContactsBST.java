@@ -44,7 +44,8 @@ public  class ContactsBST implements  IContactsDB {
 		// to do
         found = false;
         val = compareTo(name);
-        if (val == tree) {
+        if (val == tree) { // Dev note: An if statement and recurring function to go through the tree, returning true, when the item has been found.
+            found = true;
             return found;
         } else if (val > tree.data) {
             tree.right = retrieve(tree.right, val);
@@ -77,13 +78,22 @@ public  class ContactsBST implements  IContactsDB {
     /**
      * Determines if the database is empty or not.
      * @pre true
-     * @return true iff the database is empty
+     * @return true if the database is empty
      */
     @Override
     public boolean isEmpty() { return size() == 0; }
 	
      private Node insert(Node tree, Contact employee) {
 	   // to do
+       if (size(tree) == 0) {
+            tree = new tree(employee);
+            return true;
+        } else if (val > tree.data) {
+            tree.right = insert(tree.right, val);
+        } else if (val < tree.data) {
+            tree.right = insert(tree.left, val);
+        }
+
        return null; // not really
      }
   
