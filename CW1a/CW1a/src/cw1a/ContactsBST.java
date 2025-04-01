@@ -43,17 +43,13 @@ public  class ContactsBST implements  IContactsDB {
     private Contact retrieve (Node tree, String name) {
 		// to do
         found = false;
-        val = name.compareTo(tree);
-        while (found != true) {
-            if (val == tree) {
-                system.out.println(tree);
-                found == true;
-                return found;
-            } else if (val > tree) {
-                system.out.println(tree);
-            } else if (val < tree) {
-                system.out.println(tree);
-            }
+        val = compareTo(name);
+        if (val == tree) {
+            return found;
+        } else if (val > tree.data) {
+            tree.right = retrieve(tree.right, val);
+        } else if (val < tree.data) {
+            tree.right = retrieve(tree.left, val);
         }
 		return null; // not really
 	}
